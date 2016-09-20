@@ -1,0 +1,15 @@
+{
+  "client": {
+    "name": "<hostname>",
+    "address": "<hostip>",
+    "environment": "<environment>",
+    "subscriptions": [
+      "system",
+      "probedock"
+    ],
+    "socket": {
+      "bind": "127.0.0.1",
+      "port": 3030
+    }
+  }
+}

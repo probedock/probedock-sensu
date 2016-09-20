@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  sensu-api:
+    image: probedock/sensu-server
+    container_name: sensu-api
+    environment:
+      SENSU_ROLE: api
+    depends_on:
+      - sensu-server
+    ports:
+      - 9880:4567
+    networks:
+      - sensu
+
+  sensu-server:
+    image: probedock/sensu-server
+    container_name: sensu-server
+    environment:
+      SENSU_ROLE: server
+    depends_on:
+      - sensu-redis
+    networks:
+      - sensu
+
+  sensu-redis:
+    image: redis:3.0
+    container_name: sensu-redis
+    ports:
+      - 9978:6379
+    networks:
+      - sensu
+
+  sensu-uchiwa:
+    image: probedock/sensu-uchiwa
+    container_name: sensu-uchiwa
+    depends_on:
+      - sensu-api
+    ports:
+      - 9980:2000
+    networks:
+      - sensu
+
+networks:
+  sensu:

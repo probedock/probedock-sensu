@@ -1,0 +1,6 @@
+{
+  "redis": {
+    "host": "sensu-redis",
+    "port": 6379
+  }
+}

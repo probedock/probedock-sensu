@@ -1,0 +1,6 @@
+{
+  "redis": {
+    "host": "<redishostip>",
+    "port": 9978
+  }
+}
