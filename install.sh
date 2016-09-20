@@ -8,6 +8,6 @@ apt-get update
 
 apt-get install sensu
 
-cp congig-templates/*.json /etc/sensu/conf.d
+cp config-templates/*.json /etc/sensu/conf.d
 
 update-rc.d sensu-client defaults
