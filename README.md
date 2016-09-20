@@ -1,4 +1,9 @@
-## How to
+# Probe Dock Sensu monitoring solution
+
+> A dockerized Sensu installation of Sensu Server and API with Uchiwa as the web UI
+
+The idea is to deploy in your infrastructure the Dockerized Sensu setup and then
+to install and configure your clients to connect to this infra.
 
 ## Sensu API, Server and Uchiwa UI for Sensu installation
 
