@@ -18,7 +18,7 @@ COPY install-plugins.sh /install-plugins.sh
 RUN /install-plugins.sh \
   && rm plugins.txt install-plugins.sh
 
-COPY config/ /etc/sensu/conf.d
+COPY config/ /baseconf
 
 COPY start.sh /start.sh
 
