@@ -12,6 +12,11 @@ RUN apt-get update && apt-get install -y sensu
 
 RUN apt-get clean
 
+COPY plugins.txt plugins.txt
+
+RUN for plugin in `cat plugins.txt`; do sensu-install $plugin; done \
+  && rm plugins.txt
+
 COPY config/ /etc/sensu/conf.d
 
 COPY start.sh /start.sh

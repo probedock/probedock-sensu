@@ -10,4 +10,8 @@ apt-get install sensu
 
 cp config-templates/*.json /etc/sensu/conf.d
 
+for plugin in `cat images/sensu-server/plugins.txt`; do
+  sensu-install -p $plugin
+done
+
 update-rc.d sensu-client defaults
