@@ -10,6 +10,8 @@ services:
       - sensu-server
     ports:
       - 9880:4567
+    volumes:
+      - ./sensu-config:/etc/sensu/conf.d
     networks:
       - sensu
 
