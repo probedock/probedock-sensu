@@ -10,8 +10,6 @@ services:
       - sensu-server
     ports:
       - 9880:4567
-    volumes:
-      - ./sensu-config:/etc/sensu/conf.d
     networks:
       - sensu
 
@@ -23,7 +21,7 @@ services:
     depends_on:
       - sensu-redis
     volumes:
-      - ./sensu-config:/etc/sensu/conf.d
+      - ./sensu-data:/sensu
     networks:
       - sensu
 

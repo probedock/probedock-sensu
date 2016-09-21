@@ -1,8 +1,8 @@
-FROM debian:jessie
+FROM node:6.6.0-wheezy
 
-ENV SENSU_REDIS_HOST localhost
-ENV SENSU_API_PORT 4567
 ENV SENSU_ROLE server
+
+RUN npm install -g handlebars-cmd
 
 RUN apt-get update && apt-get install -y wget apt-transport-https
 
@@ -12,8 +12,7 @@ RUN apt-get update && apt-get install -y sensu
 
 RUN apt-get clean
 
-# Not used anymore as the config will be mounted
-#COPY config/ /etc/sensu/conf.d
+COPY config/ /etc/sensu/conf.d
 
 COPY start.sh /start.sh
 

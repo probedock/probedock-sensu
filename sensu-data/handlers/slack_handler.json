@@ -1,0 +1,9 @@
+{
+  "handlers": {
+    "slack": {
+      "webhook_url": "{{ SLACK_WEBHOOK_URL }}",
+      "icon_url": "http://sensuapp.org/img/sensu_logo_large-c92d73db.png",
+      "icon_emoji": ":snowman:"
+    }
+  }
+}
