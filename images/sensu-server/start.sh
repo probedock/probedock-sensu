@@ -4,7 +4,7 @@ set -e
 case $SENSU_ROLE in
 	"server")
 		# Remove the check configuration files
-		rm /etc/sensu/conf.d/check*.json
+		find /etc/sensu/conf.d -name "check*.json" -delete
 
 		# Create the new ones
 		for filename in /sensu/checks/*.json; do
@@ -12,7 +12,7 @@ case $SENSU_ROLE in
 		done
 
 		# Remove the check configuration files
-		rm /etc/sensu/conf.d/*handler.json
+		find /etc/sensu/conf.d -name "*handler.json" -delete
 
 		# Create the new ones
 		for filename in /sensu/handlers/*.json; do
