@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y sensu
 
 RUN apt-get clean
 
-COPY config/ /etc/sensu/conf.d
+# Not used anymore as the config will be mounted
+#COPY config/ /etc/sensu/conf.d
 
 COPY start.sh /start.sh
 

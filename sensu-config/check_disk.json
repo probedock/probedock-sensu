@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "boot": {
+      "command": "check_disk_usage.rb -I /boot -w 50 -c 80",
+      "subscribers": [
+        "system"
+      ],
+      "interval": 30
+    }
+  }
+}

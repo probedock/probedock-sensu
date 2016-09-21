@@ -20,6 +20,8 @@ services:
       SENSU_ROLE: server
     depends_on:
       - sensu-redis
+    volumes:
+      - ./sensu-config:/etc/sensu/conf.d
     networks:
       - sensu
 
