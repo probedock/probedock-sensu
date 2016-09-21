@@ -1,3 +1,4 @@
 .idea/
 .vagrant
 images/probedock-base/probedock
+sensu-data/env.json
