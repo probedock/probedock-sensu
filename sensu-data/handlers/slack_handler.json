@@ -2,7 +2,7 @@
   "handlers": {
     "slack": {
       "type": "pipe",
-      "command": "handler-slack.rb",
+      "command": "/opt/sensu/embedded/bin/handler-slack.rb",
       "severities": [
         "critical",
         "warning",
