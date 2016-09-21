@@ -9,4 +9,4 @@ echo "Probe Dock Sensu Uchiwa image"
 docker build -t probedock/sensu-uchiwa images/sensu-uchiwa
 
 echo "Starting Sensu"
-docker-compose -p sensu up -d sensu-uchiwa
+docker-compose -p sensu up --force-recreate -d sensu-uchiwa
