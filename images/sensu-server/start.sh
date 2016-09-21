@@ -4,7 +4,7 @@ set -e
 case $SENSU_ROLE in
 	"server")
 		# Remove the check configuration files
-		rm /etc/sensu/conf.d/check*.json;
+		rm /etc/sensu/conf.d/check*.json
 
 		# Create the new ones
 		for filename in /sensu/checks/*.json; do
@@ -12,15 +12,15 @@ case $SENSU_ROLE in
 		done
 
 		# Remove the check configuration files
-		rm /etc/sensu/conf.d/*handler.json;
+		rm /etc/sensu/conf.d/*handler.json
 
 		# Create the new ones
 		for filename in /sensu/handlers/*.json; do
 			handlebars /sensu/env.json < $filename > /etc/sensu/conf.d/$(basename "$filename")
 		done
 
-		/opt/sensu/bin/sensu-server -d /etc/sensu/conf.d;
-	;
+		/opt/sensu/bin/sensu-server -d /etc/sensu/conf.d
+	;;
 	"api") /opt/sensu/bin/sensu-api -d /etc/sensu/conf.d;;
 	*) echo "no such role"
 esac
