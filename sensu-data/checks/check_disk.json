@@ -1,20 +1,20 @@
 {
   "checks": {
-    "Partition /boot": {
+    "BootPartion": {
       "command": "check-disk-usage.rb -I /boot -w 50 -c 80",
       "subscribers": [
         "system"
       ],
       "interval": 21600
     },
-    "Partition /dev": {
+    "DevPartition": {
       "command": "check-disk-usage.rb -I /dev -w 70 -c 90",
       "subscribers": [
         "system"
       ],
       "interval": 21600
     },
-    "Partition /": {
+    "RootPartition": {
       "command": "check-disk-usage.rb -I / -w 70 -c 90",
       "subscribers": [
         "system"
