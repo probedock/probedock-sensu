@@ -5,21 +5,21 @@
       "subscribers": [
         "system"
       ],
-      "interval": 21600
+      "interval": 60
     },
     "DevPartition": {
       "command": "check-disk-usage.rb -I /dev -w 70 -c 90",
       "subscribers": [
         "system"
       ],
-      "interval": 21600
+      "interval": 60
     },
     "RootPartition": {
       "command": "check-disk-usage.rb -I / -w 70 -c 90",
       "subscribers": [
         "system"
       ],
-      "interval": 21600
+      "interval": 60
     }
   }
 }
