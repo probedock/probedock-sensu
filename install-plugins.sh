@@ -5,5 +5,5 @@ for plugin in `cat images/sensu-server/plugins.txt`; do
 done
 
 for plugin in `ls sensu-data/plugins`; do
-  cp sensu-data/plugins/$plugin /etc/sensu/plugins
+  sudo cp sensu-data/plugins/$plugin /etc/sensu/plugins
 done
