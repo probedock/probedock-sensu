@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "ProbeDock_Trial_AppContainers": {
+      "command": "check-docker-container.rb -c trial_app -s 3 -wt 2 -ct 1",
+      "subscribers": [
+        "probedock_trial"
+      ],
+      "interval": 900
+
+    },
+    "ProbeDock_Demo_AppContainers": {
+      "command": "check-docker-container.rb -c demo_app -s 3 -wt 2 -ct 1",
+      "subscribers": [
+        "probedock_demo"
+      ],
+      "interval": 900
+
+    },
+    "ProbeDock_Staging_AppContainers": {
+      "command": "check-docker-container.rb -c staging_app -s 3 -wt 2 -ct 1",
+      "subscribers": [
+        "probedock_staging"
+      ],
+      "interval": 900
+    }
+  }
+}
