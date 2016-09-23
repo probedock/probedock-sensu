@@ -14,9 +14,11 @@ RUN apt-get clean
 
 COPY plugins.txt /plugins.txt
 COPY install-plugins.sh /install-plugins.sh
+COPY gems/ /gems
 
 RUN /install-plugins.sh \
-  && rm plugins.txt install-plugins.sh
+  && rm plugins.txt install-plugins.sh \
+  && rm -rf /gems
 
 COPY config/ /baseconf
 

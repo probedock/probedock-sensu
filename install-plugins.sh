@@ -1,9 +1,9 @@
 #!/bin/bash
 
 for plugin in `cat images/sensu-server/plugins.txt`; do
-  sensu-install -p $plugin
+  sudo sensu-install -p $plugin
 done
 
-for plugin in `ls sensu-data/plugins`; do
-  sudo cp sensu-data/plugins/$plugin /etc/sensu/plugins
+for gem in images/sensu-server/gems; do
+  sudo GEM_PATH=/opt/sensu/embedded/lib/ruby/gems/2.3.0 /opt/sensu/embedded/bin/gem install images/sensu-server/gems/$gem
 done

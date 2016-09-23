@@ -4,9 +4,6 @@ set -e
 # Remove configuration files
 find /etc/sensu/conf.d -name "*.json" -delete
 
-# Remove custom plugins files
-find /etc/sensu/plugins -name "*.rb" -delete
-
 # Copy shared configuration
 cp /baseconf/redis.json /etc/sensu/conf.d
 cp /baseconf/transport.json /etc/sensu/conf.d
@@ -22,9 +19,6 @@ case $SENSU_ROLE in
 		for filename in /sensu/handlers/*.json; do
 			handlebars /sensu/env.json < $filename > /etc/sensu/conf.d/$(basename "$filename")
 		done
-
-		# Copy the custom plugins
-		cp /sensu/plugins/*.rb /etc/sensu/plugins
 
 		# Copy api config
 		cp /baseconf/api-server.json /etc/sensu/conf.d/api.json
