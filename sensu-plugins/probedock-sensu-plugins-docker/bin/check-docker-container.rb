@@ -85,9 +85,6 @@ class CheckDockerContainer < Sensu::Plugin::Check::CLI
 
     # Create the container instance names in case scaling is used
     cmd_output = `docker -H #{config[:host]} ps -a --format="{{.ID}}\t{{.Names}}" --filter="name=#{container_name}"`
-
-    puts cmd_output
-
     containers = cmd_output.split(/\n/).inject([]) do |memo, container|
       # The container data is <id>\t<name> which will be transformed to { id: <id>, name: <name> }
       memo << Hash[ [:id, :name].zip(container.split(/\t/)) ]
