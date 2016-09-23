@@ -50,6 +50,12 @@ class CheckDockerContainer < Sensu::Plugin::Check::CLI
          long: '--container CONTAINER',
          description: 'Specify a container name or ID'
 
+  option :excludes,
+         short: '-e CONTAINER_EXCLUDED[,CONTAINER_EXCLUDED]'
+         long: '--container-excluded CONTAINER_EXCLUDED[,CONTAINER_EXCLUDED]',
+         description: 'Specify one or more container name to exclude.'
+         proc: proc { |a| a.split(',') }
+
   option :container_prefix,
          short: '-p PREFIX',
          long: '--container-prefix PREFIX',
@@ -98,6 +104,13 @@ class CheckDockerContainer < Sensu::Plugin::Check::CLI
       not_running: { count: 0, messages: [] },
       error: { count: 0, messages: [] }
     }
+
+    # Remove containers that should be excluded
+    unless config[:excludes].empty?
+      containers = config[:excludes].each do |exclude|
+        containers.delete_if { |item| item[:container] == exclude || item[:id] == exclude }
+      end
+    end
 
     # Check if there is at least one container
     if containers.empty?
