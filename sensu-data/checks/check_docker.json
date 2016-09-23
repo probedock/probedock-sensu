@@ -17,7 +17,7 @@
 
     },
     "ProbeDock_Staging_AppContainers": {
-      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c staging_app -s 3 -w 2 -i 1",
+      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c default_app -s 3 -w 2 -i 1",
       "subscribers": [
         "probedock_staging"
       ],
