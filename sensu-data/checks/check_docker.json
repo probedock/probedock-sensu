@@ -54,7 +54,7 @@
     },
 
     "ProbeDock_CI_Container": {
-      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c jenkins",
+      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c jenkins -e jenkins_data",
       "subscribers": [
         "probedock_ci"
       ],
