@@ -8,18 +8,55 @@
       "interval": 60
 
     },
+
     "ProbeDock_Demo_AppContainers": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c demo_app -s 3 -w 2 -i 1",
       "subscribers": [
         "probedock_demo"
       ],
       "interval": 60
-
     },
+
     "ProbeDock_Staging_AppContainers": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c default_app -s 3 -w 2 -i 1",
       "subscribers": [
         "probedock_staging"
+      ],
+      "interval": 60
+    },
+    "ProbeDock_Staging_JobContainers": {
+      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c default_job -s 3 -w 2 -i 1",
+      "subscribers": [
+        "probedock_staging"
+      ],
+      "interval": 60
+    },
+    "ProbeDock_Staging_RpContainer": {
+      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c default_rp",
+      "subscribers": [
+        "probedock_staging"
+      ],
+      "interval": 60
+    },
+    "ProbeDock_Staging_DbContainer": {
+      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c default_db -s 3 -w 2 -i 1",
+      "subscribers": [
+        "probedock_staging"
+      ],
+      "interval": 60
+    },
+    "ProbeDock_Staging_CacheContainer": {
+      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c default_cache -s 3 -w 2 -i 1",
+      "subscribers": [
+        "probedock_staging"
+      ],
+      "interval": 60
+    },
+
+    "ProbeDock_CI_Container": {
+      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c jenkins",
+      "subscribers": [
+        "probedock_ci"
       ],
       "interval": 60
     }
