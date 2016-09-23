@@ -10,28 +10,28 @@
     "ProbeDock_Trial_JobContainers": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c trial_job -s 3 -w 2 -i 1",
       "subscribers": [
-        "probedock_staging"
+        "probedock_trial"
       ],
       "interval": 60
     },
     "ProbeDock_Trial_RpContainer": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c trial_rp",
       "subscribers": [
-        "probedock_staging"
+        "probedock_trial"
       ],
       "interval": 60
     },
     "ProbeDock_Trial_DbContainer": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c trial_db -s 3 -w 2 -i 1",
       "subscribers": [
-        "probedock_staging"
+        "probedock_trial"
       ],
       "interval": 60
     },
     "ProbeDock_Trial_CacheContainer": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c trial_cache -s 3 -w 2 -i 1",
       "subscribers": [
-        "probedock_staging"
+        "probedock_trial"
       ],
       "interval": 60
     },
@@ -46,28 +46,28 @@
     "ProbeDock_Demo_JobContainers": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c demo_job -s 3 -w 2 -i 1",
       "subscribers": [
-        "probedock_staging"
+        "probedock_demo"
       ],
       "interval": 60
     },
     "ProbeDock_Demo_RpContainer": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c demo_rp",
       "subscribers": [
-        "probedock_staging"
+        "probedock_demo"
       ],
       "interval": 60
     },
     "ProbeDock_Demo_DbContainer": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c demo_db -s 3 -w 2 -i 1",
       "subscribers": [
-        "probedock_staging"
+        "probedock_demo"
       ],
       "interval": 60
     },
     "ProbeDock_Demo_CacheContainer": {
       "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c demo_cache -s 3 -w 2 -i 1",
       "subscribers": [
-        "probedock_staging"
+        "probedock_demo"
       ],
       "interval": 60
     },
@@ -109,7 +109,7 @@
     },
 
     "ProbeDock_CI_Container": {
-      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c jenkins -e jenkins_data",
+      "command": "check-docker-container.rb -h unix:///var/run/docker.sock -c jenkins -e jenkins_data,topologycdpipeline_jenkins_1",
       "subscribers": [
         "probedock_ci"
       ],
