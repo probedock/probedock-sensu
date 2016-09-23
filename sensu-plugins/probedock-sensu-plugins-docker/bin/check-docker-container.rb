@@ -106,7 +106,7 @@ class CheckDockerContainer < Sensu::Plugin::Check::CLI
     }
 
     # Remove containers that should be excluded
-    unless config[:excludes].empty?
+    if config[:excludes] && !config[:excludes].empty?
       containers = config[:excludes].each do |exclude|
         containers.delete_if { |item| item[:container] == exclude || item[:id] == exclude }
       end
