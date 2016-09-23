@@ -53,7 +53,7 @@ class CheckDockerContainer < Sensu::Plugin::Check::CLI
   option :excludes,
          short: '-e CONTAINER_EXCLUDED[,CONTAINER_EXCLUDED]'
          long: '--container-excluded CONTAINER_EXCLUDED[,CONTAINER_EXCLUDED]',
-         description: 'Specify one or more container name to exclude.'
+         description: 'Specify one or more container name to exclude.',
          proc: proc { |a| a.split(',') }
 
   option :container_prefix,
