@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "ProbedockTrialHttp": {
+      "command": "check-http.rb -u https://trial.probedock.io --response-code 200",
+      "subscribers": [
+        "rp"
+      ],
+      "interval": 60
+
+    },
+    "ProbedockDemoHttp": {
+      "command": "check-http.rb -u https://demo.probedock.io --response-code 200",
+      "subscribers": [
+        "rp"
+      ],
+      "interval": 60
+    },
+    "ProbedockStagingHttp": {
+      "command": "check-http.rb -u https://staging.probedock.io --response-code 200",
+      "subscribers": [
+        "rp"
+      ],
+      "interval": 60
+    }
+  }
+}
