@@ -17,4 +17,4 @@ Follow the instructions given by the Sensu Plugin portal: [Installation and Setu
 
 ## Build
 
-Simply run `gem build probedock-sensu-plugins-docker.gemspec`. Once done, you can simply copy the gem to `/sensu-data/gems`
+Simply run `gem build probedock-sensu-plugins-docker.gemspec`. Once done, you can simply copy the gem to `images/sensu-server/gems`

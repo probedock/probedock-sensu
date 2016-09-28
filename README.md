@@ -9,12 +9,14 @@ to install and configure your clients to connect to this infra.
 
 ### Pre-requisites
 
-For the `sensu-server` component, we need to create a Docker volume. It is expected
-to have a directory `/sensu`.
+The `sensu-server` container uses a volume which is provided in this repos. Once started,
+the volume will be the `sensu-data` directory in this repo.
 
-In the `/sensu` directory, create the file `env.json` which will be used by `sensu-server`
-to create the configuration files at Docker container runtime. This file aims to contain
-sensitive configuration values like `tokens`, `passwords`, `webhook urls`.
+Once you cloned this repository, you need to create the file `sensu-data/env.json`.
+You can use the `env-sample.json` file for that. Then you will have to update the file
+with the correct configuration for your needs.
+
+### Installation
 
 1. Clone this repository
 
@@ -39,6 +41,7 @@ sudo ./install.sh
   * `<hostname>` The name of the host that will be appearing in the uchiwa UI
   * `<hostip>` The IP of the host that will be appearing in the uchiwa UI
   * `<environment>` The environment (production, development, ...)
+  * You probably also want to update the subscriptions for your needs.
 
 4. Update the `/etc/sensu/conf.d/redis.json` configuration file:
 
@@ -46,7 +49,7 @@ sudo ./install.sh
 
 5. It's time to run the Sensu client
 
-```bash
+```
 sudo service sensu-client start
 ```
 
@@ -54,26 +57,30 @@ sudo service sensu-client start
 
 1. Go to the http://sensu-plugins.io/ website to choose the checks you need
 
-2. Create the configuration check following the sensu documentation:
+2. Update the `images/sensu-server/plugins.txt` with the appropriate `<plugin>:<version>`
+
+3. Create the configuration check following the sensu documentation:
 
   * https://sensuapp.org/docs/0.26/guides/getting-started/intro-to-checks.html
   * https://sensuapp.org/docs/0.26/reference/checks.html
 
-  **Remark**: You need to create your check in `sensu-config` directory
+  **Remark**: You need to create your check in `sensu-data/checks` directory or
+    `sensu-data/handlers` directory.
 
-3. Update your sensu server setup
+4. Push your modifications to the repository
+
+5. Update your sensu server setup
 
   1. Update your repo (`git pull`)
 
   2. Re-run the `start.sh` script
 
-4. On each node of your infra, run:
+6. On each node of your infra, run:
 
   ```
-  sudo sensu-install -p <check_name>:<check_version>
+  cd <repository>
 
-  # Example:
-  sudo sensu-install -p disk-checks:2.0.1
+  git pull
+
+  sudo ./plugins.sh
   ```
-
-5. [Optional] To reproduce the setup, add the check to the `checks.txt` file
