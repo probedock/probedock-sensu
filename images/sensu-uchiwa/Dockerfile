@@ -2,7 +2,7 @@ FROM uchiwa/uchiwa
 
 COPY config/ /config
 
-COPY start.sh /
+COPY start.sh /start.sh
 
 EXPOSE 2000
 
