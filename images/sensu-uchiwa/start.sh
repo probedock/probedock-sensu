@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 
 export PGPASSWORD="$LAIR_DATABASE_PASSWORD"
