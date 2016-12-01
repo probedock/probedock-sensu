@@ -4,6 +4,7 @@ services:
   sensu-api:
     image: probedock/sensu-server
     container_name: sensu-api
+    restart: always
     environment:
       SENSU_ROLE: api
     depends_on:
@@ -16,6 +17,7 @@ services:
   sensu-server:
     image: probedock/sensu-server
     container_name: sensu-server
+    restart: always
     environment:
       SENSU_ROLE: server
     depends_on:
@@ -28,6 +30,7 @@ services:
   sensu-redis:
     image: redis:3.0
     container_name: sensu-redis
+    restart: always
     ports:
       - 9978:6379
     networks:

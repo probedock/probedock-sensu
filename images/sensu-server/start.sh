@@ -8,6 +8,14 @@ find /etc/sensu/conf.d -name "*.json" -delete
 cp /baseconf/redis.json /etc/sensu/conf.d
 cp /baseconf/transport.json /etc/sensu/conf.d
 
+# Make sure REDIS is started before starting the server
+until (echo > "/dev/tcp/sensu-redis/6379") >/dev/null 2>&1; do
+  >&2 echo "Redis is unavailable - waiting"
+  sleep 1
+done
+
+>&2 echo "Redis is up"
+
 case $SENSU_ROLE in
 	"server")
 		# Create the new ones
